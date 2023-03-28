@@ -23,7 +23,7 @@
 * - Zapisz rozwiązanie w jednej linii
 */
 
-const rulez = (...arrays) => arrays.flat();
+const rulez = (...arrays) => arrays.flat(Infinity);
 
 /* Weryfikacja */
 function verify(input, goal) {
