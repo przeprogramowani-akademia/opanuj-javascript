@@ -1,0 +1,24 @@
+h1, h2 {
+  font-family: Lato;
+}
+
+.app {
+  padding: 5px;
+}
+
+.text-input {
+  padding: 10px 5px;
+  border: 1px solid lightgray;
+  text-align: right;
+}
+
+.mirror {
+  font-family: Lato;
+  font-style: italic;
+  background: #1e5799;
+  background: linear-gradient(to bottom,  #b8d0ec 0%,#2989d8 50%,#207cca 75%,#7db9e8 100%);
+  padding: 10px;
+  min-width: 200px;
+  display: inline-block;
+  box-shadow: 0 7px 3px -5px rgba(0,0,0,0.2);
+}

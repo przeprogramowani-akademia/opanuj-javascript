@@ -1,0 +1,96 @@
+<style>
+  body {
+    background: #eaeaea;
+  }
+
+  * {
+    font-family: Lato;
+  }
+
+  .elevator {
+    max-height: 200px;
+    overflow-y: scroll;
+    border: 2px solid black;
+  }
+
+  .floor {
+    height: 150px;
+    border-bottom: 2px dashed #333;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: white;
+  }
+
+  .floor:last-child {
+    border: none;
+  }
+
+  .direction {
+    background: #333;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 3px;
+    text-align: center;
+  }
+</style>
+
+<div class="wrapper">
+  <div class="keyboard">
+    <div class="keyboard__row">
+      <button class="keyboard__button" data-value="1">1</button>
+      <button class="keyboard__button" data-value="2">2</button>
+      <button class="keyboard__button" data-value="3">3</button>
+    </div>
+    <div class="keyboard__row">
+      <button class="keyboard__button" data-value="4">4</button>
+      <button class="keyboard__button" data-value="5">5</button>
+      <button class="keyboard__button" data-value="6">6</button>
+    </div>
+    <div class="keyboard__row">
+      <button class="keyboard__button" data-value="7">7</button>
+      <button class="keyboard__button" data-value="8">8</button>
+      <button class="keyboard__button" data-value="9">9</button>
+    </div>
+    <div class="keyboard__row">
+      <button class="keyboard__button keyboard__button--reset" data-value="-99">Reset</button>
+      <button class="keyboard__button" data-value="0">0</button>
+      <button class="keyboard__button keyboard__button--save" data-value="99">Zapisz</button>
+    </div>
+  </div>
+
+  <div class="display">
+    
+  </div>
+</div>
+
+
+
+<script>
+
+import './style.css';
+
+document.querySelector('.display').textContent = '1234';
+
+const display = document.querySelector('.display');
+const buttons = document.querySelectorAll('.keyboard__button');
+let secretCode = '';
+
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const value = button.getAttribute('data-value');
+
+    if (value >= 0 && value <= 9) {
+      secretCode += value;
+    } else if (value == 99) {
+      display.textContent = secretCode;
+    } else if (value == -99) {
+      secretCode = '';
+      display.textContent = '';
+    }
+  });
+});
+
+</script> 

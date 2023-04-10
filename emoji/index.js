@@ -26,7 +26,6 @@ const emojiMappings = {
 
 function useEmoji(input) {
     const keys = Object.keys(emojiMappings).join('|');
-    const pattern = new RegExp(`${keys}`, 'g');
     const words = [...input.split(/(\s|[.,;!?])/g)];
     return words.map(word => {
         if (emojiMappings[word.toLowerCase()]) {

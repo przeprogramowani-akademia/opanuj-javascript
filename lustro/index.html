@@ -1,0 +1,18 @@
+<div class="app">
+  <input type="text" class="text-input" value="brawo!">
+  <span class="mirror">!owarb</span>
+</div>
+
+<script type="module">
+import '/style.css';
+
+const textInput = document.querySelector('.text-input');
+const mirror = document.querySelector('.mirror');
+
+textInput.addEventListener('input', () => {
+  const reversedText = textInput.value.split('').reverse().join('');
+  mirror.textContent = reversedText;
+});
+
+</script>
+

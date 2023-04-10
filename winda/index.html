@@ -1,0 +1,66 @@
+<div class="direction">
+  Kierunek: 🔽
+</div>
+
+<div class="elevator">
+  <div class="floor">
+    Piętro 10
+  </div>
+  <div class="floor">
+    Piętro 9
+  </div>
+  <div class="floor">
+    Piętro 8
+  </div>
+  <div class="floor">
+    Piętro 7
+  </div>
+  <div class="floor">
+    Piętro 6
+  </div>
+  <div class="floor">
+    Piętro 5
+  </div>
+  <div class="floor">
+    Piętro 4
+  </div>
+  <div class="floor">
+    Piętro 3
+  </div>
+  <div class="floor">
+    Piętro 2
+  </div>
+  <div class="floor">
+    Piętro 1
+  </div>
+  <div class="floor">
+    Piętro 0
+  </div>
+</div>
+
+<script>
+import './style.css';
+
+const directions = {
+  top: '🔼',
+  bottom: '🔽',
+};
+
+const directionElement = document.querySelector('.direction');
+const elevator = document.querySelector('.elevator');
+const floors = document.querySelectorAll('.floor');
+let currentFloor = floors.length - 1;
+let lastScrollTop = elevator.scrollTop;
+
+elevator.addEventListener('scroll', () => {
+  const scrollTop = elevator.scrollTop;
+  const direction = scrollTop > lastScrollTop ? 'bottom' : 'top';
+  const floorHeight = floors[0].offsetHeight;
+  currentFloor = Math.floor(scrollTop / floorHeight);
+
+  directionElement.textContent = `Kierunek: ${directions[direction]} | Piętro: ${currentFloor}`;
+  console.log(currentFloor);
+  lastScrollTop = scrollTop;
+});
+
+</script>

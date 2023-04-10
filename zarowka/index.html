@@ -1,0 +1,25 @@
+<div class="bulb">
+  <div class="bulb__top"></div>
+  <img class="bulb__wire" src="https://i.imgur.com/YHZCVPl.png" alt="Wire">
+  <div class="bulb__bottom"></div>
+</div>
+
+<label for="light-toggle">
+  <input name="light-toggle" id="light-toggle" type="checkbox">
+  Światło włączone
+</label>
+
+<script>
+import './style.css';
+
+const bulb = document.querySelector('.bulb');
+const lightToggle = document.querySelector('#light-toggle');
+
+lightToggle.addEventListener('change', function () {
+  if (this.checked) {
+    bulb.classList.add('bulb--on');
+  } else {
+    bulb.classList.remove('bulb--on');
+  }
+});
+</script>
