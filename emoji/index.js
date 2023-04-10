@@ -25,12 +25,15 @@ const emojiMappings = {
 };
 
 function useEmoji(input) {
-    const words = input.split(' ');
-    const result = words.map(word => {
-        const emoji = emojiMappings[word.toLowerCase()];
-        return emoji ? emoji : word;
-    });
-    return result.join(' ');
+    const keys = Object.keys(emojiMappings).join('|');
+    const pattern = new RegExp(`${keys}`, 'g');
+    const words = [...input.split(/(\s|[.,;!?])/g)];
+    return words.map(word => {
+        if (emojiMappings[word.toLowerCase()]) {
+            return emojiMappings[word.toLowerCase()];
+        }
+        return word;
+    }).join('')
 }
 
 /* Weryfikacja */
